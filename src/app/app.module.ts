@@ -37,7 +37,13 @@ import { HeaderComponent } from './components/header/header.component';
     HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, CommonModule, FormsModule],
-  providers: [],
+  providers: [
+    provideFirebaseApp(() => initializeApp({"projectId":"friendlychat-c096d","appId":"1:537166057073:web:e3317e8ed6ea1bf5a715d0","storageBucket":"friendlychat-c096d.firebasestorage.app","apiKey":"AIzaSyClzFLDVvnv3uQoXe1bUm0iU3dFXDWfiFs","authDomain":"friendlychat-c096d.firebaseapp.com","messagingSenderId":"537166057073","projectNumber":"537166057073","version":"2"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideMessaging(() => getMessaging()),
+    provideStorage(() => getStorage())
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
